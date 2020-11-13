@@ -1,2 +1,2 @@
-# 2020-Pudding-Bot
+# discord.js-Bible
 Discord Bot that posts bible verses
