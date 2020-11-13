@@ -1,8 +1,13 @@
-// Variables
+// Dependencies
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const dictionary = require("./dictionary");
+
+// Client/Token
 const client = new Discord.Client();
+const token = require("./config.json");
+
+// Variables
+const dictionary = require("./dictionary");
 const keywords = ["pudding", "pudd", "pud"];
 
 // Ready message
@@ -61,4 +66,4 @@ const capitalize = (s) => {
 };
 
 // Last line
-client.login("Nzc2MTg4MDc3MDc1ODU3NDc5.X6xPeg.FgyWdzsmDWLJiPWWkus2JV_nm8I");
+client.login(token);
