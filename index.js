@@ -68,5 +68,4 @@ const capitalize = (s) => {
 // Last line
 client.login(token);
 
-// Test git
-// asdfasdf
+// Test
