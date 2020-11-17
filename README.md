@@ -5,7 +5,7 @@ Discord Bot that does a myriad of different things
 - [x] 🍞🙏 Recite bible verses 
   - implemented, but not activated 
 - [ ] 📆⌚ Tells you time and date, based on country 
-  - In progress (⏳4️⃣5️⃣%)
+  - In progress (⏳45%)
 - [ ] 🕹🎮 Lets you vote on things 
   - Haven't started 😪💤
 - [x] 🔴🎌🚅☦ Redpilled, and Fully Orthodox 
