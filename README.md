@@ -8,4 +8,4 @@ Discord Bot that does a myriad of different things
   - In progress (⏳45%)
 - [ ] 🕹🎮 Lets you vote on things 
   - Haven't started 😪💤
-- [x] 🔴🎌🚅☦ Redpilled, and Fully Orthodox 
+- [x] ⛩🎌🚅☦ Redpilled, and Fully Orthodox `(⊙﹏⊙)`
