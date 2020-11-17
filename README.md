@@ -15,8 +15,11 @@ Discord Bot that does a myriad of different things
 ---
 
 ### Usage:
-- 🐙 Give Github link
-  - Type the keyword (pudding, pudd, pud) + 
-    ```js
-    > "help", "github", "source", "code"
-    ```
+Type keyword + mention word
+> Keyword: "pudding", "pudd", "pud"
+
+🐙 **Give Github link**
+- `"help"`
+- `"github"`
+- `"source"`
+- `"code"`
