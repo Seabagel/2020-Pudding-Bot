@@ -15,11 +15,11 @@ Discord Bot that does a myriad of different things
 ---
 
 ### Usage:
-Type keyword + mention word
-> Keyword: "pudding", "pudd", "pud"
+> Type "pudding", "pudd", or "pud" + mention keyword anywhere in your sentence
 
-🐙 **Give Github link**
-- `"help"`
-- `"github"`
-- `"source"`
-- `"code"`
+1. 🐙 **Give Github link**
+   - `"help"`
+   - `"github"`
+   - `"source"`
+   - `"code"`
+2. ☦ **Bible verse**
