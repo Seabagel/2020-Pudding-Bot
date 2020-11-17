@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 const { mentionsKeyword, containsWord, getAPI } = require("./fn.js");
 
 // Config files
-const { token, keywords, commonWords } = require("../config/config.json");
+const { token, keywords, commonWords } = require("../../config/config.json");
 
 // Client
 const client = new Discord.Client();

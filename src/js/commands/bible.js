@@ -1,4 +1,4 @@
-const { capitalize } = require("./fn.js");
+const { capitalize } = require("../fn.js");
 
 module.exports = {
     name: "bible",
