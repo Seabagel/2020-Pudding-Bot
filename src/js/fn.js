@@ -13,7 +13,7 @@ const capitalize = (str) => {
 };
 
 // Look for dictionary words that matches
-const containsWord = (wordList, message, callback) => {
+const containsWord = (message, wordList, callback) => {
     for (let i = 0; i < wordList.length; i++) {
         if (wordList[i].includes(message)) {
             // Break from loop

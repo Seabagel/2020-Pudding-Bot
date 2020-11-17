@@ -23,7 +23,11 @@ client.on("message", async (message) => {
     // Check if message contains keyword
     if (!mentionsKeyword(keywords, message) || message.author.bot) return;
 
-    containsWord(commonWords, message, getAPI());
+    containsWord(message, ["help", "github", "source", "code"], () => {
+        let text =
+            "https://github.com/Seabagel/discord.js-VirtualPudding/tree/timezones";
+        message.channel.send(text);
+    });
 
     // EOF
 });
