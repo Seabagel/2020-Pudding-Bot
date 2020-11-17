@@ -16,9 +16,9 @@ client.once("ready", () => {
 });
 
 // Activate on message event
-client.on("message", async (message) => {
+client.on("message", async (msg) => {
     // Message content
-    let message = message.content.toLowerCase(); // The chat message
+    let message = msg.content.toLowerCase(); // The chat message
 
     // Check if message contains keyword
     if (!mentionsKeyword(keywords, message) || message.author.bot) return;
