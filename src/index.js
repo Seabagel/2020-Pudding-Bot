@@ -4,10 +4,10 @@ const fetch = require("node-fetch");
 
 // Client/Token
 const client = new Discord.Client();
-const { token } = require("./config.json");
+const { token } = require("../config/config.json");
 
 // Variables
-const dictionary = require("./dictionary");
+const dictionary = require("../config/dictionary");
 const keywords = ["pudding", "pudd", "pud"];
 
 // Ready message
