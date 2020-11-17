@@ -16,17 +16,17 @@ client.once("ready", () => {
 });
 
 // Activate on message event
-client.on("message", async (msg) => {
+client.on("message", async (userInput) => {
     // Message content
-    let message = msg.content.toLowerCase(); // The chat message
+    let message = userInput.content.toLowerCase(); // The chat message
 
     // Check if message contains keyword
-    if (!mentionsKeyword(keywords, message) || message.author.bot) return;
+    if (!mentionsKeyword(keywords, message) || userInput.author.bot) return;
 
     containsWord(message, ["help", "github", "source", "code"], () => {
         let text =
             "https://github.com/Seabagel/discord.js-VirtualPudding/tree/timezones";
-        message.channel.send(text);
+        userInput.channel.send(text);
     });
 
     // EOF

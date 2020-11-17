@@ -15,7 +15,7 @@ const capitalize = (str) => {
 // Look for dictionary words that matches
 const containsWord = (message, wordList, callback) => {
     for (let i = 0; i < wordList.length; i++) {
-        if (wordList[i].includes(message)) {
+        if (message.includes(wordList[i])) {
             // Break from loop
             callback();
             break;
@@ -28,7 +28,6 @@ const mentionsKeyword = (keywords, message) => {
     keywords.forEach((index) => {
         if (message.includes(index)) {
             passed = true;
-            console.log("For loop break");
         }
     });
     return passed;
