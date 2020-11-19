@@ -28,7 +28,7 @@ client.on("message", async (userInput) => {
         return;
     } else if (message.startsWith("!time")) {
         // If message starts with command, then
-        sendTime(userInput, "china");
+        sendTime(userInput, "mongolia");
     } else if (
         containsWord(message, keywords.pudding) &&
         containsWord(message, keywords.github)

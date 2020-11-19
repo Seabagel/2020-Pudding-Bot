@@ -40,16 +40,21 @@ const sendTime = async (userInput, place) => {
     // Do stuff with results page
     let values = await Promise.all([page1, page2, page3]).then((response) => {
         // Cheerio extracts content
+
         // Google search: Time
         let date = cheerio("span:nth-child(1)", response[0])
             .eq(7)
             .text()
             .split("\n");
         let time = cheerio("div:nth-child(1)", response[0]).eq(21).text();
+
         // Google search: Place
-        let placeName = cheerio("div:nth-child(1)", response[1]).eq(14).text();
-        let placeInfo = cheerio("div:nth-child(1)", response[1]).eq(15).text();
-        let wikipedia = cheerio("div:nth-child(1)", response[1]).eq(19).text();
+        let placeInfo = cheerio("div:nth-child(1)", response[1]).eq(16).text();
+        let wikipedia = cheerio("div:nth-child(1)", response[1])
+            .eq(19)
+            .text()
+            .split(".", 2);
+
         // Wikipedia search: Image
         let image =
             "https:" +
@@ -57,13 +62,15 @@ const sendTime = async (userInput, place) => {
 
         // Construct and embedded message
         let embedded = {
-            title: placeName,
-            description: placeInfo,
             color: 7268003,
             thumbnail: {
                 url: image,
             },
             fields: [
+                {
+                    name: capitalize(place.toLowerCase()),
+                    value: placeInfo,
+                },
                 {
                     name: time,
                     value: date[1],
@@ -74,7 +81,7 @@ const sendTime = async (userInput, place) => {
                 },
                 {
                     name: "Wikipedia",
-                    value: wikipedia,
+                    value: `${wikipedia[0]}. ${wikipedia[1]}.`,
                 },
             ],
             footer: {
@@ -85,9 +92,9 @@ const sendTime = async (userInput, place) => {
         };
 
         // sends an embedded discord message
-        console.log("Sending message... -!time");
-        userInput.channel.send(`${date}\n${time}`);
-        console.log("Message sent! -!time");
+        console.log("Sending message... !time");
+        userInput.channel.send({ embed: embedded });
+        console.log("Message sent! !time");
     });
 };
 
