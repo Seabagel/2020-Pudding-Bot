@@ -1,16 +1,19 @@
 // Dependencies
 const Discord = require("discord.js");
-
-// Functions
-const { mentionsKeyword, containsWord, getAPI } = require("./fn.js");
+const requestPromise = require("request-promise");
 
 // Config files
-const { token, keywords, commonWords } = require("../../config/config.json");
+const { token } = require("../../config/config.json");
+
+// JSON files
+const keywords = require("../json/keywords.json");
+
+// Functions
+const { sendGithub, sendTime } = require("./commands.js");
+const { containsWord } = require("./func.js");
 
 // Client
 const client = new Discord.Client();
-
-// Ready message
 client.once("ready", () => {
     console.log("Ready!");
 });
@@ -20,14 +23,21 @@ client.on("message", async (userInput) => {
     // Message content
     let message = userInput.content.toLowerCase(); // The chat message
 
-    // Check if message contains keyword
-    if (!mentionsKeyword(keywords, message) || userInput.author.bot) return;
-
-    containsWord(message, ["help", "github", "source", "code"], () => {
-        let text =
-            "https://github.com/Seabagel/discord.js-VirtualPudding/tree/timezones";
-        userInput.channel.send(text);
-    });
+    // Check if message is from itself
+    if (userInput.author.bot) {
+        return;
+    } else if (message.startsWith("!time")) {
+        // If message starts with command, then
+        sendTime(userInput, "china");
+    } else if (
+        containsWord(message, keywords.pudding) &&
+        containsWord(message, keywords.github)
+    ) {
+        sendGithub();
+    } else {
+        // If nothing else, exit
+        return;
+    }
 
     // EOF
 });
