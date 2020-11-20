@@ -1,12 +1,8 @@
-// Dependencies
 const cheerio = require("cheerio");
-
-// Requires
-const { requestPage, capitalize, fetchAPI } = require("./func.js");
+const { requestPage, capitalize, fetchAPI, sendMessage } = require("./func.js");
 const { githubURL } = require("../../config/config.json");
 
-// Send Github link
-const sendGithub = (userInput) => {
+const sendGithub = (userInput, commandName) => {
     let embedded = {
         color: 0x0099ff,
         author: {
@@ -42,22 +38,12 @@ const sendGithub = (userInput) => {
             text: "hosted on Github 👨‍💻 - made with love 💌",
         },
     };
-
-    // Sends an embedded discord message
-    try {
-        // Send a message
-        userInput.channel.send({ embed: embedded });
-        console.log("Sending message... -help");
-    } catch (error) {
-        console.log("Error: " + error);
-    }
+    sendMessage(userInput, embedded);
 };
 
-// Send Bible verse
 let sendBible = async (userInput) => {
     const url = "https://labs.bible.org/api/?passage=random&type=json";
     const result = fetchAPI(url).then((response) => {
-        // Concat the resulting bible verse
         let text = `*${response[0].bookname} (${response[0].chapter}:${
             response[0].verse
         })*    ${capitalize(response[0].text)}`;
@@ -89,9 +75,7 @@ let sendBible = async (userInput) => {
             },
         };
 
-        // Sends an embedded discord message
         try {
-            // Send a message
             userInput.channel.send({ embed: embedded });
             console.log("Sending message... -preach");
         } catch (error) {
