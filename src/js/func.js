@@ -21,7 +21,7 @@ const containsWord = (message, wordList) => {
 // Fetch API
 const fetchAPI = async (url) => {
     let response = await fetch(url);
-    return response;
+    return await response.json();
 };
 
 // Request a webpage
@@ -37,4 +37,9 @@ let requestPage = async (url) => {
     return await result;
 };
 
-module.exports = { capitalize, containsWord, fetchAPI, requestPage };
+module.exports = {
+    capitalize,
+    containsWord,
+    fetchAPI,
+    requestPage,
+};

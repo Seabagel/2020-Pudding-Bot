@@ -7,10 +7,10 @@ const { token } = require("../../config/config.json");
 
 // JSON files
 const keywords = require("../json/keywords.json");
+const prefix = "pudding";
 
 // Functions
-const { sendGithub, sendTime } = require("./commands.js");
-const { containsWord } = require("./func.js");
+const { sendGithub, sendTime, sendBible } = require("./commands.js");
 
 // Client
 const client = new Discord.Client();
@@ -24,16 +24,21 @@ client.on("message", async (userInput) => {
     let message = userInput.content.toLowerCase(); // The chat message
 
     // Check if message is from itself
-    if (userInput.author.bot) {
-        return;
-    } else if (message.startsWith("!time")) {
-        // If message starts with command, then
-        sendTime(userInput, "mongolia");
-    } else if (
-        containsWord(message, keywords.pudding) &&
-        containsWord(message, keywords.github)
-    ) {
-        sendGithub();
+    if (userInput.author.bot) return;
+
+    // If message starts with command, then
+    if (message.startsWith(prefix + " -time")) {
+        const args = message
+            .slice((prefix + " -time").length)
+            .trim()
+            .split(" ");
+
+        // run command
+        sendTime(userInput, args);
+    } else if (message.startsWith(prefix + " -help")) {
+        sendGithub(userInput);
+    } else if (message.startsWith(prefix + " -preach")) {
+        sendBible(userInput);
     } else {
         // If nothing else, exit
         return;
