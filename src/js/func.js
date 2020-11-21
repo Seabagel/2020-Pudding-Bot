@@ -1,9 +1,10 @@
 const fetch = require("node-fetch");
 const requestPromise = require("request-promise");
+const { githubURL } = require("../../json/embeds.json");
 
 const capitalize = (str) => {
     if (typeof str !== "string") return "";
-    return str.charAt(0).toUpperCase() + str.slice(1);
+    return str.charAt(0).toUpperCase() + str.toLowerCase().slice(1);
 };
 
 const containsWord = (message, wordList) => {
@@ -33,11 +34,15 @@ const requestPage = async (url) => {
 
 const sendMessage = async (userInput, embedded, commandName) => {
     try {
-        userInput.channel.send({ embed: embedded });
+        userInput.channel.send(embedded);
         console.log("Sending message... " + commandName);
     } catch (error) {
         console.log("Error: " + error);
     }
+};
+
+const githubMessage = (cmdName) => {
+    return `**Command:** [pudding *-${cmdName}*](${githubURL})`;
 };
 
 module.exports = {
@@ -46,4 +51,5 @@ module.exports = {
     fetchAPI,
     requestPage,
     sendMessage,
+    githubMessage,
 };

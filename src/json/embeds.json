@@ -1,0 +1,9 @@
+{
+    "empty": "\u200b",
+    "footer": {
+        "icon_url": "https://github.githubassets.com/favicons/favicon.png",
+        "text": "hosted on Github 👨‍💻 - made with love 💌"
+    },
+    "githubURL": "https://github.com/Seabagel/discord.js-VirtualPudding",
+    "bibleAPI": "https://labs.bible.org/api/?passage=random&type=json"
+}
