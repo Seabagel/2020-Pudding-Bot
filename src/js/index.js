@@ -1,3 +1,4 @@
+const fs = require("fs");
 const Discord = require("discord.js");
 const { token } = require("../../config/config.json");
 const prefix = "pudding";
