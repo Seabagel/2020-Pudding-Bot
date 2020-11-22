@@ -20,7 +20,6 @@
 - [x] 🖥⌨ Gives the link to Github source code (aka this page)
 - [x] 🍞🙏 Recite bible verses 
 - [x] 📆⌚ Tells you time and date, based on country 
-- [x] Based, and Redpilled
 
 ### Planned:
 - [ ] 🕹🎮 Lets you vote on things `(⊙﹏⊙)`
