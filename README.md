@@ -4,8 +4,9 @@
 ### How to install:
 1. Install npm on your computer from [Node.JS](https://nodejs.org/en/)
 2. Install [Git](https://git-scm.com/)
-3. Clone this repository using `git clone <this repository's link>`
-4. Open the cloned repository in Powershell, cmd, or Bash,
+3. Open in a CLI like Powershell, cmd, or Bash,
+   - Clone this repository using `git clone <this repository's link>`
+4. Still in your CLI, cd (change directory) to the cloned repository's folder
 5. Use `npm i` to install Node.js dependencies 
 6. Register a Discord Developer account, and obtain a Token to host the bot 
    - ["Code Your Own Discord Bot - Basics (2020)"]("https://www.youtube.com/watch?reload=9&v=j_sD9udZnCk")
