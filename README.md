@@ -15,6 +15,8 @@
    - There's an example config file inside, rename it to `config.json`
 8. Open the root folder again, and run `node .` or `npm start`
 
+---
+
 ### Features:
 - [x] **Case *inSenSiTIVE***
 - [x] 🖥⌨ Gives the link to Github source code (aka this page)
