@@ -10,6 +10,8 @@
 ## Planned:
 - [ ] 🕹🎮 Lets you vote on things `(⊙﹏⊙)`
 
+---
+
 ### Usage:
 > Type "pudding" <command> <sub_command> in your discord chatbox
 
