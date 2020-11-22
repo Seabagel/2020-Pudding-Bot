@@ -13,7 +13,7 @@
    - [Discord Developer Portal](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications)
 7. After setting up an App on Discord Developer Portal, 
    - Go to the root folder of the repository, and paste your Token inside `config/config.json`
-   - There's an example config file inside, rename it to `config.json`
+   - There's an example file inside the config folder, rename it to `config.json`
 8. Open the root folder again, and run `node .` or `npm start`
 
 ---
