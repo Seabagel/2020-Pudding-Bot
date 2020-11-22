@@ -1,17 +1,6 @@
 # discord.js-VirtualPudding
 🏔🌸⛩🎌🚅 Discord Bot that does a different things
 
-## Features:
-- [x] **Case *inSenSiTIVE***
-- [x] 🖥⌨ Gives the link to Github source code (aka this page)
-- [x] 🍞🙏 Recite bible verses 
-- [x] 📆⌚ Tells you time and date, based on country 
-
-## Planned:
-- [ ] 🕹🎮 Lets you vote on things `(⊙﹏⊙)`
-
----
-
 ### Usage:
 > Type "pudding" <command> <sub_command> in your discord chatbox
 
@@ -28,6 +17,17 @@
    - `"pudding -preach"` sends a random bible verse, plus the bookname, chapter, and number
 
 4. ⏳ Coming soon: Poll/Voting
+
+
+## Features:
+- [x] **Case *inSenSiTIVE***
+- [x] 🖥⌨ Gives the link to Github source code (aka this page)
+- [x] 🍞🙏 Recite bible verses 
+- [x] 📆⌚ Tells you time and date, based on country 
+
+## Planned:
+- [ ] 🕹🎮 Lets you vote on things `(⊙﹏⊙)`
+
 
 # How to install:
 1. Install npm on your computer from [Node.JS](https://nodejs.org/en/)
