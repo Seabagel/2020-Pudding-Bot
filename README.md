@@ -9,6 +9,11 @@
 5. Use `npm i` to install Node.js dependencies 
 6. Register a Discord Developer account, and obtain a Token to host the bot 
    - ["Code Your Own Discord Bot - Basics (2020)"]("https://www.youtube.com/watch?reload=9&v=j_sD9udZnCk")
+   - [Discord Developer Portal](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications)
+7. After setting up an App on Discord Developer Portal, 
+   - Go to the root folder of the repository, and paste your Token inside `config/config.json`
+   - There's an example config file inside, rename it to `config.json`
+8. Open the root folder again, and run `node .` or `npm start`
 
 ### Features:
 - [x] **Case *inSenSiTIVE***
