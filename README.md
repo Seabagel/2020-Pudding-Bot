@@ -25,7 +25,7 @@
 - [x] 🍞🙏 Recite bible verses 
 - [x] 📆⌚ Tells you time and date, based on country 
 
-## Planned:
+### Planned:
 - [ ] 🕹🎮 Lets you vote on things `(⊙﹏⊙)`
 
 
