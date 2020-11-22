@@ -1,12 +1,17 @@
 const Discord = require("discord.js");
-const { requestPage } = require("../func.js");
-const { footer } = require("../../json/embeds.json");
+const {
+    githubMessage,
+    sendMessage,
+    requestPage,
+    capitalize,
+} = require("../func.js");
+const { empty, footer } = require("../../json/embeds.json");
 
 // Fetch html pages
 const cheerio = require("cheerio");
 
 module.exports = {
-    name: "-time",
+    name: "time",
     async execute(userInput, args) {
         // Request webpage
         let searchGoogle = args.join("+"); // Google Search
@@ -51,11 +56,9 @@ module.exports = {
             const embedded = new Discord.MessageEmbed()
                 .setColor(7268003)
                 .setThumbnail(image)
+                .setTitle(placeName)
+                .setDescription(placeInfo)
                 .addFields(
-                    {
-                        name: placeName,
-                        value: placeInfo,
-                    },
                     {
                         name: time,
                         value: timezone,

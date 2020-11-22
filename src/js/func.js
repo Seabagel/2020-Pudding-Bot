@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 const requestPromise = require("request-promise");
-const { githubURL } = require("../../json/embeds.json");
+const { githubURL } = require("../json/embeds.json");
 
 const capitalize = (str) => {
     if (typeof str !== "string") return "";
