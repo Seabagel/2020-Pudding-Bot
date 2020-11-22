@@ -35,12 +35,8 @@ client.on("message", async (userInput) => {
     } catch (error) {
         let errorMsg = "There was an error trying to execute that command!";
         userInput.channel.send(errorMsg);
-        console.log(errorMsg);
+        //console.log(errorMsg);
     }
-
-    // if (command == "-time") sendTime(userInput, args);
-    // else if (command == "-help") sendGithub(userInput);
-    // else if (command == "-preach") sendBible(userInput);
 });
 
 client.login(token);
