@@ -9,7 +9,7 @@
 4. Still in your CLI, change directory to the cloned repository's folder `cd <folder_name>`
 5. Use `npm i` to install Node.js dependencies 
 6. Register a Discord Developer account, and obtain a Token to host the bot 
-   - ["Code Your Own Discord Bot - Basics (2020)"]("https://www.youtube.com/watch?reload=9&v=j_sD9udZnCk")
+   - [Code Your Own Discord Bot - Basics (2020)](https://www.youtube.com/watch?reload=9&v=j_sD9udZnCk)
    - [Discord Developer Portal](https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications)
 7. After setting up an App on Discord Developer Portal, 
    - Go to the root folder of the repository, and paste your Token inside `config/config.json`
