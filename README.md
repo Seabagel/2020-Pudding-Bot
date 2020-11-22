@@ -3,7 +3,7 @@
 
 ### How to install:
 1. Install npm on your computer [Node.JS]("https://nodejs.org/en/")
-2. Install git [Git]("https://git-scm.com/")
+2. Install [Git]("https://git-scm.com/")
 3. Clone this repository using `git clone <this repository's link>`
 4. Open the cloned repository in Powershell, cmd, or Bash
 5. Install Node.js dependencies `npm i`
