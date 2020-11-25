@@ -1,7 +1,13 @@
+// Dependencies
 const fs = require("fs");
 const Discord = require("discord.js");
+
+// JSON
 const { token } = require("../../config/config.json");
-const prefix = "pudding";
+const { prefix } = require("../json/templates.json");
+
+// Functions
+const { catchRespond } = require("./utils/func.js");
 
 // Client
 const client = new Discord.Client();
@@ -33,9 +39,7 @@ client.on("message", async (userInput) => {
     try {
         client.commands.get(command).execute(userInput, args);
     } catch (error) {
-        let errorMsg = "There was an error trying to execute that command!";
-        userInput.channel.send(errorMsg);
-        //console.log(errorMsg);
+        catchRespond(userInput);
     }
 });
 

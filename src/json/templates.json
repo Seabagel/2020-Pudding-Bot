@@ -1,0 +1,19 @@
+{
+    "prefix": "pudding",
+    "empty": "\u200b",
+    "footer": {
+        "icon_url": "https://github.githubassets.com/favicons/favicon.png",
+        "text": "hosted on Github 👨‍💻 - made with love 💌"
+    },
+    "githubURL": "https://github.com/Seabagel/discord.js-VirtualPudding",
+    "bibleAPI": "https://labs.bible.org/api/?passage=random&type=json",
+    "errorMsg": [
+        "There was an error trying to execute that command!",
+        "type `pudding -help` for list of available commands"
+    ],
+    "thumbnails": [
+        "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/world-map_1f5fa.png",
+        "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/orthodox-cross_2626.png",
+        "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/263/service-dog_1f415-200d-1f9ba.png"
+    ]
+}

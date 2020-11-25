@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 const requestPromise = require("request-promise");
-const { githubURL } = require("../json/embeds.json");
+const { githubURL, errorMsg } = require("../../json/templates.json");
 
 const capitalize = (str) => {
     if (typeof str !== "string") return "";
@@ -21,28 +21,36 @@ const fetchAPI = async (url) => {
 };
 
 const requestPage = async (url) => {
-    let result = await requestPromise(url)
+    return await requestPromise(url)
         .then((response) => {
             return response;
         })
         .catch((err) => {
             console.log(err);
         });
-
-    return await result;
 };
 
 const sendMessage = async (userInput, embedded, commandName) => {
     try {
         userInput.channel.send(embedded);
         console.log("Sending message... " + commandName);
-    } catch (error) {
-        console.log("Error: " + error);
+    } catch (err) {
+        console.log("Error: " + err);
     }
 };
 
 const githubMessage = (cmdName) => {
     return `**Command:** [pudding *-${cmdName}*](${githubURL})`;
+};
+
+const getRandomInt = (max) => {
+    return Math.round(Math.random() * max);
+};
+
+let catchRespond = (userInput) => {
+    console.log(errorMsg[0]);
+    userInput.channel.send(errorMsg[0]);
+    userInput.channel.send(errorMsg[1]);
 };
 
 module.exports = {
@@ -52,4 +60,6 @@ module.exports = {
     requestPage,
     sendMessage,
     githubMessage,
+    getRandomInt,
+    catchRespond,
 };
