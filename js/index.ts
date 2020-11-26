@@ -3,11 +3,11 @@ import fs from "fs";
 import Discord, { Collection } from "discord.js";
 
 // JSON
-import { token } from "../../config/config.json";
-import { prefix } from "../json/templates.json";
+import { token } from "../config/config.json";
+import { prefix } from "./tools/~templates.json";
 
 // Functions
-import { catchRespond } from "./utils/func";
+import { mssg_tools } from "./tools/message_tool";
 
 // Client
 const client = new Discord.Client();
@@ -46,7 +46,7 @@ client.on("message", async (userInput) => {
 
         commands.get(cmnd).execute(userInput, args);
     } catch (error) {
-        catchRespond(userInput);
+        mssg_tools.catchError(userInput);
     }
 });
 

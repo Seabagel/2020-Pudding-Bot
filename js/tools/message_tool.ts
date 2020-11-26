@@ -1,8 +1,8 @@
 // JSON
 import { Message, MessageEmbed } from "discord.js";
-import { githubURL, errorMsg } from "../../json/templates.json";
+import { githubURL, errorMsg } from "./~templates.json";
 
-const messg = {
+export const mssg_tools = {
     github: (cmdName: string) => {
         return `**Command:** [pudding *-${cmdName}*](${githubURL})`;
     },
@@ -20,5 +20,3 @@ const messg = {
         userInput.channel.send(errorMsg[1]);
     },
 };
-
-export default messg;

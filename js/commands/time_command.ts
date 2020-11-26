@@ -1,26 +1,23 @@
 // Dependencies
-import { Message, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import cheerio from "cheerio";
 
 // JSON
-import { empty, footer, thumbnails } from "../../json/templates.json";
+import { empty, footer, thumbnails } from "../tools/~templates.json";
 
-// Default Functions
-import messg from "../utils/default_command_imports";
+// Functions
+import { mssg_tools } from "../tools/message_tool";
+import { htttp_tools } from "../tools/http_tool";
+import { text_tools } from "../tools/text_tool";
 
-// Additional Functions
-import { capitalize, requestPage, getRandomInt } from "../utils/func";
-
-interface command {
-    readonly cmnd_name: string;
-    execute: (userInput: Message, args?: string[]) => void;
-}
+// Interface
+import { command } from "../interfaces/command";
 
 export class command_time implements command {
-    cmnd_name: "time";
+    cmnd_name = "time";
     async execute(userInput, args) {
         let argsURL = args.join("+");
-        let argsString = capitalize(args.join(" "));
+        let argsString = text_tools.capitalize(args.join(" "));
 
         // Static link to search engines
         let timeURL = `https://www.google.com/search?q=what+time+is+it+in+${argsURL}`;
@@ -35,7 +32,8 @@ export class command_time implements command {
         };
 
         // Search result which grabs timezone, date, and time
-        let timeWebpage: Promise<void | string[]> = requestPage(timeURL)
+        let timeWebpage: Promise<void | string[]> = htttp_tools
+            .requestPage(timeURL)
             .then((res) => {
                 // Returns a Promise of object containing date/time
                 let $ = cheerio.load(res);
@@ -46,18 +44,21 @@ export class command_time implements command {
                 let time: string = $("div:nth-child(1)").eq(21).text();
                 return [dateTimezone, time];
             })
-            .catch((err) => messg.catchError(userInput));
+            .catch((err) => mssg_tools.catchError(userInput));
 
         // Search result and grab a random picture
-        let pictureWebpage: Promise<string> = requestPage(picURL)
+        let pictureWebpage: Promise<string> = htttp_tools
+            .requestPage(picURL)
             .then((response) => {
                 // Returns a Promise of picture URL
                 let urls = response(".image a.link");
-                let picture = urls.eq(getRandomInt(urls.length)).attr("href");
+                let picture = urls
+                    .eq(text_tools.getRandomInt(urls.length))
+                    .attr("href");
                 if (!urls.length) return console.log("Can't get pictures");
                 return picture;
             })
-            .catch((err) => messg.catchError(userInput));
+            .catch((err) => mssg_tools.catchError(userInput));
 
         // Wait for both pages to load
         await Promise.all([timeWebpage, pictureWebpage]).then(
@@ -79,12 +80,12 @@ export class command_time implements command {
                         )
                         .setImage(res[1])
                         .setThumbnail(thumbnails[0])
-                        .addField(empty, githubMessage(this.cmnd_name))
+                        .addField(empty, mssg_tools.github(this.cmnd_name))
                         .setFooter(footer.text, footer.icon_url);
                     // Send message
-                    sendMessage(userInput, embedded, this.cmnd_name);
+                    mssg_tools.send(userInput, embedded, this.cmnd_name);
                 } catch (error) {
-                    messg.catchError(userInput);
+                    mssg_tools.catchError(userInput);
                 }
             }
         );
