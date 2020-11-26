@@ -1,31 +1,36 @@
 // Dependencies
-const fs = require("fs");
-const Discord = require("discord.js");
+import fs from "fs";
+import Discord, { Collection } from "discord.js";
 
 // JSON
-const { token } = require("../../config/config.json");
-const { prefix } = require("../json/templates.json");
+import { token } from "../../config/config.json";
+import { prefix } from "../json/templates.json";
 
 // Functions
-const { catchRespond } = require("./utils/func.js");
+import { catchRespond } from "./utils/func";
 
 // Client
 const client = new Discord.Client();
-client.commands = new Discord.Collection();
 
 // Get commands dynamically
-const commandFiles = fs
-    .readdirSync("./src/js/commands")
+fs.readdirSync("./src/js/commands")
     .filter((file) => file.endsWith(".js"))
     .forEach((file) => {
         const command = require(`./commands/${file}`);
-        client.commands.set(command.name, command);
+        // commands.set(command.name, command)
     });
 
 // Ready message
 client.once("ready", () => {
     console.log("Ready!");
 });
+
+const commands: Map<string, command> = new Map<string, command>();
+
+interface command {
+    name: string;
+    execute: Function;
+}
 
 // Activate on message event
 client.on("message", async (userInput) => {
@@ -34,10 +39,12 @@ client.on("message", async (userInput) => {
     if (!message.startsWith(prefix) || userInput.author.bot) return;
 
     const args = message.slice(prefix.length).trim().split(" ");
-    const command = args.shift();
+    const cmnd = args.shift();
 
     try {
-        client.commands.get(command).execute(userInput, args);
+        // TODO: Create a "Command" class that implements execute
+
+        commands.get(cmnd).execute(userInput, args);
     } catch (error) {
         catchRespond(userInput);
     }
